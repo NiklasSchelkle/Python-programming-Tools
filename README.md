@@ -1,53 +1,58 @@
-🥇 Data Science Projekt: Analyse Olympischer Erfolgsfaktoren
+# Data Science Projekt: Analyse olympischer Erfolgsfaktoren
 
-Dieses Projekt ist eine zweiteilige Datenanalyse, die sich mit verschiedenen Faktoren befasst, die den Erfolg bei Olympischen Spielen beeinflussen. Es nutzt sowohl Athleten-spezifische Daten als auch makroökonomische Indikatoren von Ländern.
+Dieses Projekt umfasst eine zweistufige quantitative Analyse der Faktoren, die den sportlichen Erfolg bei Olympischen Spielen beeinflussen. Die Untersuchung kombiniert athletenspezifische Biometrie mit makroökonomischen Indikatoren auf Länderebene.
 
-Das Projekt ist in zwei separate Jupyter Notebooks unterteilt, die jeweils einen Schwerpunkt beleuchten:
-Notebook	Fokus	Methode
-SemesterProjekt_1.ipynb	Analyse von Athleten-Merkmalen und deren Zusammenhang mit dem Erfolg.	Explorative Datenanalyse (EDA), deskriptive Statistik.
-SemesterProjekt_2.ipynb	Vorhersage der Medaillenanzahl basierend auf sozioökonomischen Indikatoren.	Regressionsanalyse, Nutzung von World Bank Daten.
-1. Teil 1: Athleten-Merkmale und Leistung (EDA)
+Das Projekt ist in zwei dedizierte Jupyter Notebooks unterteilt:
 
-Das erste Projektziel war die Explorative Datenanalyse (EDA), um Korrelationen zwischen den körperlichen Merkmalen von Athleten und ihrem Erfolg (Medaillengewinn) in verschiedenen Sportarten zu untersuchen.
-🎯 Zielsetzung
+| Datei | Fokus | Methodik |
+| :--- | :--- | :--- |
+| **SemesterProjekt_1.ipynb** | Biometrische Merkmale von Athleten und deren Korrelation zum Erfolg. | Explorative Datenanalyse (EDA), Deskriptive Statistik. |
+| **SemesterProjekt_2.ipynb** | Prädiktion der Medaillenanzahl basierend auf sozioökonomischen Indikatoren. | Regressionsanalyse, World Bank Data Integration. |
 
-    Identifizieren, in welchen Sportarten bestimmte physische Merkmale (z.B. Körpergröße, Gewicht) einen signifikanten Wettbewerbsvorteil darstellen.
+---
 
-    Beurteilen, ob diese Merkmale bei Medaillengewinnern signifikant von denen der Nicht-Gewinner abweichen.
+## 1. Teilprojek: Athleten-Merkmale und Leistung (EDA)
 
-🛠️ Methodik
+Das primäre Ziel dieses Teilprojekts ist die Untersuchung der Korrelation zwischen physischen Attributen und dem Gewinn von Medaillen in verschiedenen Disziplinen.
 
-    Datenbereinigung: Verarbeitung des Rohdatensatzes der Olympischen Spiele, Fokus auf die Merkmale Height (Größe) und Weight (Gewicht).
+### Zielsetzung
+* Identifikation von Sportarten, in denen biometrische Merkmale (z. B. Körpergröße, Gewicht) einen signifikanten Wettbewerbsvorteil darstellen.
+* Statistische Überprüfung, ob sich Medaillengewinner in ihren physischen Ausprägungen signifikant von Nicht-Gewinnern unterscheiden.
 
-    Statistische Analyse: Berechnung von Mittelwerten und Standardabweichungen der Athleten-Merkmale, aufgeschlüsselt nach Sportart und Erfolgsstatus (Gewinner/Nicht-Gewinner).
+### Methodik
+* **Datenbereinigung:** Prozessierung des olympischen Rohdatensatzes mit Fokus auf die Variablen *Height* (Körpergröße) und *Weight* (Gewicht).
+* **Statistische Analyse:** Berechnung von Lagemaßen (Mittelwerte) und Streuungsmaßen (Standardabweichungen), differenziert nach Sportart und Erfolgskategorie.
+* **Disziplinspezifische Untersuchung:** Detaillierte Analyse ausgewählter Sportarten wie Schwimmen, Moderner Fünfkampf und Kunstturnen zur Verifizierung signifikanter Abweichungen.
 
-    Ergebnisanalyse: Spezifische Untersuchung von Sportarten wie Schwimmen, Fünfkampf (Pentathlon) und Kunstturnen (Artistic Gymnastics), um signifikante Abweichungen zu identifizieren.
+### Wesentliche Erkenntnisse
+Die Analyse deutet darauf hin, dass Medaillengewinner tendenziell eine überdurchschnittliche Körpergröße aufweisen. Dieser Effekt variiert je nach Disziplin und ist beispielsweise im Schwimmsport deutlich ausgeprägter als in anderen Sportarten.
 
-🔑 Wesentliche Erkenntnisse
+---
 
-Es wurde die vorsichtige Schlussfolgerung gezogen, dass Athleten, die Medaillen gewinnen, tendenziell eher größer sind als der Durchschnitt, wobei in einigen Sportarten (z.B. Schwimmen) die Größe einen deutlicheren Vorteil darstellt als in anderen.
-2. Teil 2: Ökonomische Faktoren und Medaillen-Vorhersage
+## 2. Teilprojekt: Ökonomische Faktoren und Medaillen-Vorhersage
 
-Der zweite Teil konzentriert sich auf die Regressionsanalyse, um den Medaillenspiegel eines Landes auf Basis seiner ökonomischen und sozialen Entwicklung vorherzusagen.
-🎯 Zielsetzung
+Der zweite Teil nutzt Regressionsmodelle, um die Medaillenbilanz eines Landes auf Basis seiner ökonomischen und sozialen Entwicklung zu prognostizieren.
 
-    Ermitteln, welche makroökonomischen Indikatoren (z.B. BIP, Bevölkerungsgröße, Gesundheitsausgaben) die Medaillenleistung eines Landes am stärksten beeinflussen.
+### Zielsetzung
+* Bestimmung der einflussreichsten makroökonomischen Indikatoren (z. B. BIP, Bevölkerungszahl, Gesundheitsausgaben) auf die sportliche Performance.
+* Entwicklung eines prädiktiven Modells zur Vorhersage der Anzahl gewonnener Goldmedaillen pro Nation.
 
-    Entwicklung eines Regressionsmodells zur Vorhersage der Anzahl an gewonnenen Goldmedaillen.
+### Methodik
+* **Datenakquise:** Automatisierter Abruf sozioökonomischer Zeitreihen der Weltbank mittels der `wbgapi`-Schnittstelle.
+* **Feature Engineering:** Zusammenführung der Weltbank-Indikatoren mit historischen Medaillendaten (Zielvariable: Anzahl Goldmedaillen).
+* **Modellierung:** Training und Optimierung eines Regressionsmodells zur Abbildung linearer oder nicht-linearer Zusammenhänge.
+* **Validierung:** Prüfung der Modellgüte durch konkrete Vorhersage-Szenarien (z. B. Validierung anhand der Resultate der Niederlande im Jahr 2012).
 
-🛠️ Methodik
+---
 
-    Datenbeschaffung: Verwendung der wbgapi-Bibliothek, um aktuelle und historische sozioökonomische Indikatoren von der World Bank abzurufen.
+## Technologie-Stack
 
-    Datenzusammenführung: Verknüpfung der World Bank Indikatoren mit dem historischen Medaillenspiegel der Olympischen Spiele (Zielvariable: Goldmedaillen).
+| Bibliothek / Tool | Verwendungszweck |
+| :--- | :--- |
+| **pandas** | Datenprozessierung und Transformation. |
+| **wbgapi** | Programmatischer Zugriff auf die World Bank Datenbank. |
+| **scikit-learn** | Implementierung, Training und Evaluation der Regressionsmodelle. |
+| **jupyter** | Dokumentation und interaktive Entwicklungsumgebung. |
 
-    Modelltraining: Training eines Regressionsmodells (vermutlich Lineare Regression oder ein ähnliches Verfahren) auf den aufbereiteten Daten.
-
-    Validierung: Anwendung des trainierten Modells für eine konkrete Vorhersage (z.B. Goldmedaillen für die Niederlande 2012) zur Überprüfung der Modellgenauigkeit.
-
-💡 Technologie-Stack
-Bibliothek/Tool	Zweck
-pandas	Datenverarbeitung und -manipulation.
-wbgapi	Abrufen von World Bank Daten.
-scikit-learn	Regressionsmodelle (Modelltraining und -bewertung).
-jupyter	Interaktive Entwicklungs- und Dokumentationsumgebung.
+---
+*Erstellt im Rahmen eines akademischen Projekts zur Statistischen Analyse.*
